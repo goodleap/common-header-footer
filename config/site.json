@@ -1,0 +1,13 @@
+{
+  "brand": { "label": "共同空间", "href": "../demo/" },
+  "navigation": [
+    { "id": "overview", "label": "概览", "href": "../demo/" },
+    { "id": "map", "label": "地图项目", "href": "../demo/?project=map" },
+    { "id": "studio", "label": "创作项目", "href": "../demo/?project=studio" }
+  ],
+  "footer": {
+    "text": "各自独立，共享入口。",
+    "links": [{ "label": "接入说明", "href": "../README.md", "newTab": true }]
+  },
+  "theme": { "accent": "#176b55", "background": "#ffffff", "foreground": "#172c28", "muted": "#52645f", "border": "#dce6e0" }
+}

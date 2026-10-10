@@ -1,0 +1,54 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { color: #172c28; background: #f4f6f2; font: 14px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+/* These are the demo business's explicit layout choices, not library global CSS. */
+common-shell { height: 100vh; height: 100dvh; }
+common-shell:not(:defined) { display: block; }
+.app { height: 100%; min-height: 0; min-width: 0; overflow: auto; display: grid; grid-template-rows: auto minmax(240px, 1fr) auto; gap: 22px; padding: clamp(18px, 3.2vw, 42px); max-width: 1440px; margin: auto; }
+.app:fullscreen { max-width: none; width: 100%; height: 100%; background: #f4f6f2; }
+.intro { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.eyebrow { margin: 0 0 8px; font-size: 11px; font-weight: 700; letter-spacing: .17em; color: #687b72; }
+h1 { margin: 0; font-weight: 600; letter-spacing: -.035em; font-size: clamp(25px, 3vw, 38px); line-height: 1.25; }
+.description { margin: 10px 0 0; color: #60716a; }
+.badge { display: inline-flex; gap: 7px; align-items: center; white-space: nowrap; padding: 6px 10px; border: 1px solid #d9e3da; border-radius: 20px; background: #edf2eb; font-size: 12px; color: #49634e; }
+.badge span, .measure-dot { width: 6px; height: 6px; border-radius: 50%; background: #52865e; }
+.workbench { min-height: 240px; min-width: 0; display: grid; grid-template-rows: auto minmax(150px, 1fr) auto; border: 1px solid #d8e1d8; border-radius: 12px; overflow: hidden; background: white; box-shadow: 0 3px 15px #21392a05; }
+.toolbar { padding: 11px 16px; display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; gap: 12px; border-bottom: 1px solid #dce5dc; }
+.switches, .actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.switches { gap: 18px; }
+label { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+input { accent-color: #176b55; width: 16px; height: 16px; margin: 0; }
+button { cursor: pointer; font: inherit; border: 1px solid #d8e0d9; border-radius: 6px; color: #344b3e; background: white; padding: 6px 11px; }
+button:hover { background: #f0f5ef; }
+button[aria-pressed="true"] { background: #e1efe7; border-color: #84aa93; }
+button:disabled { cursor: default; opacity: .55; }
+button:focus-visible, input:focus-visible { outline: 2px solid #176b55; outline-offset: 3px; }
+#fullscreen { color: white; border-color: #235b45; background: #235b45; }
+#fullscreen:hover { background: #194b38; }
+.canvas-stage { position: relative; min-height: 150px; min-width: 0; overflow: hidden; background: #e9efe4; }
+canvas { display: block; width: 100%; height: 100%; position: absolute; inset: 0; }
+.canvas-heading { position: absolute; left: clamp(18px, 3vw, 40px); top: clamp(18px, 3vw, 36px); pointer-events: none; }
+.canvas-label { font-size: 10px; font-weight: 700; letter-spacing: .16em; color: #55775b; }
+h2 { margin: 7px 0 4px; font-size: clamp(19px, 2.2vw, 28px); font-weight: 500; letter-spacing: -.025em; }
+.canvas-heading p { color: #5d735e; margin: 0; font-size: 12px; }
+.measure { display: flex; align-items: center; gap: 8px; position: absolute; left: clamp(18px, 3vw, 40px); bottom: 22px; border: 1px solid #cfddc8; border-radius: 6px; background: #ffffffeb; padding: 8px 12px; font-size: 11px; color: #647760; }
+.measure output { font: 500 16px ui-monospace, SFMono-Regular, Consolas, monospace; color: #294f35; }
+.map-key { position: absolute; right: 20px; bottom: 26px; color: #5e735b; font-size: 11px; }
+.map-key i { display: inline-block; width: 14px; border-top: 2px solid #789878; margin-right: 5px; vertical-align: middle; }
+.workbench-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 9px 16px; color: #687b6e; font-size: 11px; }
+#content-size { font-variant-numeric: tabular-nums; }
+.notes { color: #788679; font-size: 12px; display: flex; gap: 8px 24px; flex-wrap: wrap; justify-content: space-between; }
+.notes p { margin: 0; }
+.notes strong { font-weight: 600; color: #607362; }
+code { font-family: ui-monospace, monospace; font-size: 11px; }
+@media (max-width: 640px) {
+  .app { gap: 16px; padding: 18px 14px; }
+  .intro { align-items: flex-start; }
+  .badge { display: none; }
+  .description { font-size: 12px; }
+  .toolbar { padding: 10px 12px; }
+  .actions { gap: 6px; }
+  button { padding: 6px 8px; font-size: 12px; }
+  .map-key { display: none; }
+  .notes { font-size: 11px; }
+}

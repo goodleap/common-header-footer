@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>公共页头与页尾 · 交互演示</title>
+  <link rel="stylesheet" href="./demo.css">
+  <script type="module" src="./demo.js"></script>
+</head>
+<body>
+  <common-shell id="shell" config-src="../config/site.json">
+    <main class="app" id="app">
+      <section class="intro" aria-labelledby="title">
+        <div class="intro-copy">
+          <p class="eyebrow">COMMON HEADER / FOOTER</p>
+          <h1 id="title">共享入口，独立空间。</h1>
+          <p class="description">头尾统一维护，内容由业务掌控。试着切换显示，观察下方画布如何适应。</p>
+        </div>
+        <span class="badge"><span></span> 无运行时依赖</span>
+      </section>
+      <section class="workbench" aria-label="内容区域演示">
+        <div class="toolbar">
+          <div class="switches" role="group" aria-label="公共区域显示">
+            <label><input id="header-toggle" type="checkbox" checked>页头</label>
+            <label><input id="footer-toggle" type="checkbox" checked>页尾</label>
+          </div>
+          <div class="actions">
+            <button id="wrap-toggle" type="button" aria-pressed="false">加长导航</button>
+            <button id="immerse" type="button" aria-pressed="false">进入沉浸</button>
+            <button id="fullscreen" type="button">进入全屏 <span aria-hidden="true">↗</span></button>
+          </div>
+        </div>
+        <div class="canvas-stage" id="canvas-stage">
+          <canvas id="canvas" role="img" aria-label="随业务容器尺寸自适应的地图示意画布"></canvas>
+          <div class="canvas-heading"><span class="canvas-label">YOUR INDEPENDENT APP</span><h2>业务的可用空间</h2><p>Canvas 跟随容器，而非浏览器窗口</p></div>
+          <div class="measure"><span class="measure-dot"></span><output id="canvas-size" aria-label="画布 CSS 尺寸">测量中</output><span>CSS px</span></div>
+          <span class="map-key" aria-hidden="true"><i></i> 画布示意 / 非地图服务</span>
+        </div>
+        <div class="workbench-footer"><span id="visibility-status" role="status">页头和页尾默认显示</span><output id="content-size" aria-label="组合容器分配的内容尺寸"></output></div>
+      </section>
+      <div class="notes">
+        <p><strong>接入提示</strong> · 业务容器使用 <code>height: 100%</code>，Canvas 监听自身容器的 ResizeObserver。</p>
+        <p id="message" role="status">沉浸或全屏退出后，恢复之前的显示选择。</p>
+      </div>
+    </main>
+  </common-shell>
+</body>
+</html>
